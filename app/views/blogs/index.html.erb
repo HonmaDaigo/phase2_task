@@ -1,0 +1,16 @@
+<h1>つぶやき一覧</h1>
+<p><%= notice %></p>
+<table class="t-gyo">
+  <tr>
+    <th>投稿内容</th>
+    <th colspan="2">操作</th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td width="60%"><%= blog.tweet %></td>
+    <td><%= link_to '編集', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' }, class:"button_edit" %></td>
+    <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class:"button_del" %></td>
+  </tr>
+<% end %>
+</table>
